@@ -1,0 +1,54 @@
+<section class="page">
+  <a mat-button color="accent" routerLink="/">← Back to list</a>
+
+  @if (loading) {
+    <div class="state state--center">
+      <mat-progress-spinner diameter="48" mode="indeterminate" />
+    </div>
+  } @else if (error) {
+    <p class="state state--error">{{ error }}</p>
+  } @else if (character) {
+    <mat-card class="detail-card">
+      <div class="detail-layout">
+        <div class="detail-media">
+          <img
+            class="detail-image"
+            [src]="character.image"
+            [alt]="character.name"
+            loading="lazy"
+          />
+        </div>
+        <div class="detail-info">
+          <h1 class="detail-title">{{ character.name }}</h1>
+          <dl class="detail-list">
+            <dt>House</dt>
+            <dd [style.color]="houseColor(character.house)">
+              {{ character.house.trim() ? character.house : '—' }}
+            </dd>
+
+            <dt>Actor</dt>
+            <dd>{{ character.actor || '—' }}</dd>
+
+            <dt>Wizard</dt>
+            <dd>{{ character.wizard }}</dd>
+
+            <dt>Species</dt>
+            <dd>{{ character.species || '—' }}</dd>
+
+            <dt>Ancestry</dt>
+            <dd>{{ character.ancestry || '—' }}</dd>
+
+            <dt>Wand wood</dt>
+            <dd>{{ character.wand.wood || '—' }}</dd>
+
+            <dt>Wand core</dt>
+            <dd>{{ character.wand.core || '—' }}</dd>
+
+            <dt>Wand length</dt>
+            <dd>{{ wandLength(character.wand.length) }}</dd>
+          </dl>
+        </div>
+      </div>
+    </mat-card>
+  }
+</section>

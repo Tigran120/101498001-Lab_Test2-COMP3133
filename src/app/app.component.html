@@ -1,0 +1,12 @@
+<mat-toolbar class="app-toolbar" color="primary">
+  <span class="brand">Harry Potter — Lab Test 2</span>
+  <span class="spacer"></span>
+  <a mat-button routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+    All Characters
+  </a>
+  <a mat-button routerLink="/filter" routerLinkActive="active">By House</a>
+</mat-toolbar>
+
+<div class="app-shell">
+  <router-outlet />
+</div>

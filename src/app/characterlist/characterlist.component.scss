@@ -1,0 +1,83 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-head {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.section-bar {
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.refresh-fab {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.state {
+  padding: 2rem 1rem;
+}
+
+.state--center {
+  display: flex;
+  justify-content: center;
+}
+
+.state--error {
+  color: #ffcdd2;
+  text-align: center;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.hp-card {
+  cursor: pointer;
+  background: #050505;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  }
+}
+
+.hp-card__img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: top center;
+  margin: 0;
+}
+
+.hp-card__body {
+  text-align: center;
+  padding: 0.75rem 0.5rem 1rem !important;
+}
+
+.hp-card__name {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.hp-card__house {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}

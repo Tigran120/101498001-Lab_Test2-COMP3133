@@ -1,0 +1,45 @@
+<section class="page">
+  <header class="page-head">
+    <mat-toolbar class="section-bar">Character List</mat-toolbar>
+    @if (!loading) {
+      <button
+        mat-mini-fab
+        color="accent"
+        type="button"
+        class="refresh-fab"
+        aria-label="Refresh character list"
+        (click)="load()"
+      >
+        <mat-icon>refresh</mat-icon>
+      </button>
+    }
+  </header>
+
+  @if (loading) {
+    <div class="state state--center">
+      <mat-progress-spinner diameter="48" mode="indeterminate" />
+    </div>
+  } @else if (error) {
+    <p class="state state--error">{{ error }}</p>
+  } @else {
+    <div class="card-grid">
+      @for (c of characters; track c.id) {
+        <mat-card
+          class="hp-card"
+          role="button"
+          tabindex="0"
+          (click)="goToDetails(c)"
+          (keyup.enter)="goToDetails(c)"
+        >
+          <img mat-card-image class="hp-card__img" [src]="c.image" [alt]="c.name" loading="lazy" />
+          <mat-card-content class="hp-card__body">
+            <h3 class="hp-card__name">{{ c.name }}</h3>
+            <p class="hp-card__house" [style.color]="houseColor(c.house)">
+              {{ displayHouse(c.house) }}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  }
+</section>
