@@ -3,10 +3,12 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 
 import { HpCharacter } from '../models/hp-character';
 import { HpApiService } from '../services/hp-api.service';
+import { hasCharacterImage } from '../utils/character-image';
 import { houseAccentColor } from '../utils/house-color';
 
 @Component({
@@ -16,6 +18,7 @@ import { houseAccentColor } from '../utils/house-color';
     MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    MatIconModule,
   ],
   templateUrl: './characterdetails.component.html',
   styleUrl: './characterdetails.component.scss',
@@ -29,6 +32,7 @@ export class CharacterdetailsComponent implements OnInit {
   error: string | null = null;
 
   readonly houseColor = houseAccentColor;
+  readonly hasImage = hasCharacterImage;
 
   ngOnInit(): void {
     this.route.paramMap

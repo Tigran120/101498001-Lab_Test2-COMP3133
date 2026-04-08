@@ -32,7 +32,20 @@
           (click)="goToDetails(c)"
           (keyup.enter)="goToDetails(c)"
         >
-          <img mat-card-image class="hp-card__img" [src]="c.image" [alt]="c.name" loading="lazy" />
+          @if (hasImage(c.image)) {
+            <img
+              mat-card-image
+              class="hp-card__img"
+              [src]="c.image"
+              [alt]="c.name"
+              loading="lazy"
+            />
+          } @else {
+            <div class="hp-card__img hp-card__placeholder" aria-hidden="true">
+              <mat-icon class="hp-card__placeholder-icon">person</mat-icon>
+              <span class="hp-card__placeholder-text">No photo</span>
+            </div>
+          }
           <mat-card-content class="hp-card__body">
             <h3 class="hp-card__name">{{ c.name }}</h3>
             <p class="hp-card__actor">Actor: {{ c.actor || '—' }}</p>

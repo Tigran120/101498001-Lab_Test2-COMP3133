@@ -11,12 +11,19 @@
     <mat-card class="detail-card">
       <div class="detail-layout">
         <div class="detail-media">
-          <img
-            class="detail-image"
-            [src]="character.image"
-            [alt]="character.name"
-            loading="lazy"
-          />
+          @if (hasImage(character.image)) {
+            <img
+              class="detail-image"
+              [src]="character.image"
+              [alt]="character.name"
+              loading="lazy"
+            />
+          } @else {
+            <div class="detail-image detail-image--placeholder" aria-hidden="true">
+              <mat-icon class="detail-placeholder-icon">person</mat-icon>
+              <span class="detail-placeholder-text">No photo in API</span>
+            </div>
+          }
         </div>
         <div class="detail-info">
           <h1 class="detail-title">{{ character.name }}</h1>

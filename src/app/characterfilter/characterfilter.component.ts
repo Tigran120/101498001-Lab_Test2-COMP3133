@@ -6,9 +6,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
 import { HpCharacter } from '../models/hp-character';
 import { HpApiService } from '../services/hp-api.service';
+import { hasCharacterImage } from '../utils/character-image';
 import {
   HOGWARTS_HOUSES,
   HogwartsHouse,
@@ -24,6 +26,7 @@ import {
     MatSelectModule,
     MatToolbarModule,
     MatProgressSpinnerModule,
+    MatIconModule,
   ],
   templateUrl: './characterfilter.component.html',
   styleUrl: './characterfilter.component.scss',
@@ -40,6 +43,7 @@ export class CharacterfilterComponent implements OnInit {
   error: string | null = null;
 
   readonly houseColor = houseAccentColor;
+  readonly hasImage = hasCharacterImage;
 
   ngOnInit(): void {
     this.load();

@@ -8,6 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { HpCharacter } from '../models/hp-character';
 import { HpApiService } from '../services/hp-api.service';
+import { hasCharacterImage } from '../utils/character-image';
 import { houseAccentColor } from '../utils/house-color';
 
 @Component({
@@ -31,6 +32,7 @@ export class CharacterlistComponent implements OnInit {
   error: string | null = null;
 
   readonly houseColor = houseAccentColor;
+  readonly hasImage = hasCharacterImage;
 
   ngOnInit(): void {
     this.load();

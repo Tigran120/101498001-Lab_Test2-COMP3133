@@ -53,6 +53,29 @@
   object-position: top center;
 }
 
+.detail-image--placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: #1a1a1a;
+  color: #757575;
+  box-sizing: border-box;
+}
+
+.detail-placeholder-icon {
+  width: 96px !important;
+  height: 96px !important;
+  font-size: 96px !important;
+}
+
+.detail-placeholder-text {
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
 .detail-info {
   flex: 1;
   padding: 1.25rem 1.5rem 1.5rem;
